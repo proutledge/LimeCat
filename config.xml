@@ -17,7 +17,8 @@
         Paul Routledge
     </author>
     
-    <plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
-    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <feature name="Accelerometer">
+        <param name="android-package" value="org.apache.cordova.AccelListener" />
+    </feature>
 
 </widget>
