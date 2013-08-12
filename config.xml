@@ -14,7 +14,9 @@
     </description>
 
     <author href="https://build.phonegap.com" email="support@phonegap.com">
-        paul Routledge
+        Paul Routledge
     </author>
+    
+    <plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
 
 </widget>
