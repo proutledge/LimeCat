@@ -4,9 +4,38 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<script>
+	document.addEventListener("deviceready", onDeviceReady, false);
+	function onDeviceReady()
+	{
+		navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	}
+	
+	function onSuccess(position)
+	{
+		var element = document.getElementById('geolocation');
+		element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Timestamp: '          + position.timestamp                    + '<br />';
+	}
+	
+	function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+</script>
 </head>
 
 <body>
-Here is a test page...<span id="colour">HERE</span> is a lime cat -><img src="img/limecat.jpg" width="244" height="207" alt="limecat" longdesc="img/limecat.jpg" />
+    Here is a test page...<span id="colour">HERE</span> is a lime cat!<br/>
+    <img src="img/limecat.jpg" width="244" height="207" alt="limecat" longdesc="img/limecat.jpg" /><br/><br/>
+    
+    <h1>Geolocation Details</h1>
+    <p id="geolocation">Finding geolocation...</p>
 </body>
 </html>
