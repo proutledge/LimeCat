@@ -1,38 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Device Properties Example</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script>
 
-    <script type="text/javascript" charset="utf-8" src="js/libs/cordova-2.0.0.js"></script>
-    <script type="text/javascript" charset="utf-8">
-
-    // Wait for Cordova to load
+// Wait for Cordova to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
     //
     function onDeviceReady() {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError, { enableHighAccuracy: true });
-        
-        var options = {};
-		options.frequency = 1000;
-		console.log("Hitting Accelerometer");
-		var accelerationWatch =
-		   navigator.accelerometer.watchAcceleration(
-		     updateAccelerationUI, function(ex) {
-		       console.log("accel fail (" + ex.name + ": " + ex.message + ")");
-		   }, options);
-		   
-		   navigator.compass.getCurrentHeading(onCompassSuccess, onCompassError);
-		   
-		   var element = document.getElementById('deviceProperties');
-        element.innerHTML = 'Device Name: '     + device.name     + '<br />' +
-                            'Device Cordova: '  + device.cordova  + '<br />' +
-                            'Device Platform: ' + device.platform + '<br />' +
-                            'Device UUID: '     + device.uuid     + '<br />' +
-                            'Device Model: '    + device.name    + '<br />' +
-                            'Device Version: '  + device.version  + '<br />';
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
 
     // onSuccess Geolocation
@@ -55,39 +36,15 @@
         alert('code: '    + error.code    + '\n' +
                 'message: ' + error.message + '\n');
     }
-    
-    // called when Accelerometer detects a change
-   function updateAccelerationUI(a) {
-    	document.getElementById('my.x').innerHTML = a.x;
-    	document.getElementById('my.y').innerHTML = a.y;
-    	document.getElementById('my.z').innerHTML = a.z;
-   } // updateAccelerationUI
-   
-   // onCompassSuccess: Get the current heading
-    //
-    function onCompassSuccess(heading) {
-        document.getElementById('heading').innerHTML = heading.magneticHeading;
-    }
-    
 
-    // onCompassError: Failed to get the heading
-    //
-    function onCompassError(compassError) {
-        alert('Compass Error: ' + compassError.code);
-    }
-    </script>
-  </head>
-  <body>
-    <p id="geolocation">Finding geolocation...</p>
+</script>
+</head>
+
+<body>
+    Here is a test page...<span id="colour">HERE</span> is a lime cat!<br/>
+    <img src="img/limecat.jpg" width="244" height="207" alt="limecat" longdesc="img/limecat.jpg" /><br/><br/>
     
-    <div>X: <b id="my.x"></b> </div>
-	<div>Y: <b id="my.y"></b> </div>
-	<div>Z: <b id="my.z"></b> </div>
-	
-	<p>getCurrentHeading</p>
-	<p id="heading">Loading heading...</p>
-	
-	<p id="deviceProperties">Loading device properties...</p>
-</p>
-  </body>
+    <h1>Geolocation Details</h1>
+    <p id="geolocation">Finding geolocation</p>
+</body>
 </html>
